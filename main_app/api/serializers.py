@@ -6,7 +6,10 @@ class WhyUsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WhyUs
-        fields = "__all__"
+        fields = (
+            'title', 'title_en', 'title_uz', 'title_ru','description' ,
+            'description_en', 'description_ru', 'description_uz'
+        )
 
 
 class PartnersSerializer(serializers.ModelSerializer):
@@ -33,14 +36,15 @@ class CertificateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Certificate
-        fields = "__all__"
+        fields = ('image', 'title', 'title_en', 'title_uz', 'title_ru','description' ,
+            'description_en', 'description_ru', 'description_uz')
 
 
 class FeedBackSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FeedBack
-        fields = "__all__"
+        fields = ('comment','comment_uz','comment_ru','comment_en','name','image','profession')
 
     
 class FAQCategorySerializer(serializers.ModelSerializer):
@@ -53,6 +57,5 @@ class FAQSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FAQ
-        fields = "__all__"
-
-
+        fields = ('faq_page','answer','answer_uz','answer_ru',
+                  'answer_en','question','question_uz','question_ru','question_en')

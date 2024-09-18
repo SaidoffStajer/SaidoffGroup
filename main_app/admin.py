@@ -1,8 +1,15 @@
 from django.contrib import admin
 from .models import WhyUs, Partners, Certificate, Subscribe, FAQ, FAQCategory, Team, FeedBack
+from modeltranslation.admin import TranslationAdmin
 
 
-for a in [WhyUs, Partners, Certificate, Subscribe, FAQ, FAQCategory, Team, FeedBack]:
+class WhyUsTranslationAdmin(TranslationAdmin):
+    list_display = ('title', 'description')
+
+admin.site.register(WhyUs, WhyUsTranslationAdmin)
+
+
+for a in [Partners, Certificate, Subscribe, FAQ, FAQCategory, Team, FeedBack]:
     admin.site.register(a)
 
     

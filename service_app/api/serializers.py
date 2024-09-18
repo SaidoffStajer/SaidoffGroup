@@ -8,14 +8,15 @@ class ServiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Service
-        fields = '__all__'
+        fields = ('title', 'title_en', 'title_uz', 'title_ru')
 
 
 class ServiceDescriptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ServiceDescription
-        fields = '__all__'
+        fields = ('service','title', 'title_en', 'title_uz', 'title_ru','description' ,
+            'description_en', 'description_ru', 'description_uz','image')
 
 
 class OrderSerializer(serializers.ModelSerializer):
