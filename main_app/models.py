@@ -65,6 +65,30 @@ class FAQ(models.Model):
     faq_page = models.ForeignKey(FAQCategory,on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.question
+        return self.faq_page.title
     
+class Feature(models.Model):
+    title = models.CharField(max_length=125)
+    tick = models.BooleanField(default=False)
+
+class PricePlan(models.Model):
+    title = models.CharField(max_length=125)
+    price = models.IntegerField()
+    limit_date = models.CharField(max_length=125)
+    limit_user = models.CharField(max_length=125)
+    features = models.ManyToManyField(Feature)
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+
 

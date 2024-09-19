@@ -1,5 +1,5 @@
 from modeltranslation.translator import TranslationOptions, translator
-from .models import WhyUs, Certificate,FeedBack,FAQ
+from .models import WhyUs, Certificate,FeedBack,FAQ,PricePlan,Feature
 
 class WhyUsTranslation(TranslationOptions):
     fields = ('title', 'description')
@@ -13,8 +13,14 @@ class FeedBackTranslation(TranslationOptions):
 class FAQTransaltion(TranslationOptions):
     fields = ('answer','question')
 
+class PricePlanTranslation(TranslationOptions):
+    fields = ('limit_date','limit_user','title')
 
 
-for a,b in [(Certificate,CertificateTranslation),(WhyUs, WhyUsTranslation),(FeedBack,FeedBackTranslation),(FAQ,FAQTransaltion)]:
+class FeatureTranslation(TranslationOptions):
+    fields = ('title',)
+
+
+for a,b in [(Certificate,CertificateTranslation),(WhyUs, WhyUsTranslation),(FeedBack,FeedBackTranslation),(FAQ,FAQTransaltion),(PricePlan,PricePlanTranslation),(Feature,FeatureTranslation)]:
     translator.register(a,b)
 

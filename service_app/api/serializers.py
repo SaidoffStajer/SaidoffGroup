@@ -32,4 +32,10 @@ class PortfolioSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Portfolio
-        fields = ['image', 'url_link', 'service_name']
+        fields = ['image', 'url_link', 'service_name','tags']
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('title','title_en','title_uz','title_ru')

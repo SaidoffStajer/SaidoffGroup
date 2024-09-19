@@ -64,3 +64,8 @@ class FAQView(ListAPIView):
         return Response(serializer.data)
     
 
+class PricePlanView(ListAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = (PricePlanSerializer)
+    queryset = PricePlan.objects.all()
+

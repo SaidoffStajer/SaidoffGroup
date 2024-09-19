@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Service, ServiceDescription, Order, Portfolio
+from .models import Service, ServiceDescription, Order, Portfolio, Tag
 
 
-for a in [ Order, Portfolio]:
+for a in [ Order, Portfolio,Tag]:
     admin.site.register(a)
 
 

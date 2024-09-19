@@ -19,6 +19,13 @@ class WhyUsTestCase(APITestCase):
 
         self.assertEqual(serialized_data['title'],'test1')
         self.assertEqual(serialized_data['description'],'test2')
+    
+    def test_whyus_invalid_data(self):
+        # Test if invalid data raises error
+        invalid_data = {'title': '', 'description': ''}
+        serializer = WhyUsSerializer(data=invalid_data)
+        self.assertFalse(serializer.is_valid())
+        self.assertIn('title', serializer.errors)
 
     
 class TeamTestCase(APITestCase):

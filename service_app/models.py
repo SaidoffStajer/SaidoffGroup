@@ -33,8 +33,15 @@ class Portfolio(models.Model):
     image = models.ImageField(upload_to='portfolio')
     url_link = models.URLField()
     service_name = models.ForeignKey(Service,on_delete=models.CASCADE)
+    tags = models.ManyToManyField('Tag')
 
     def __str__(self):
         return f'Project for {self.service_name.title}'
+    
+
+class Tag(models.Model):
+    title = models.CharField(max_length=125)
+
+ 
     
     

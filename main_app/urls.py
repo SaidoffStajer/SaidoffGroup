@@ -9,4 +9,5 @@ urlpatterns = [
     path('certificate',CertificateView.as_view()),
     path('feedback',FeedBackView.as_view()),
     path('faq/<str:faq_page>/', FAQView.as_view(), name='faq-view'),
+    path('priceplan',PricePlanView.as_view()),
 ]
