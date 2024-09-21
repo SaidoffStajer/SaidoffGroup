@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.conf import settings
+from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path, include
@@ -34,7 +36,7 @@ schema_view = get_schema_view(
       license=openapi.License(name="BSD License"),
    ),
    public=True,
-   permission_classes=(permissions.AllowAny,),
+#    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
@@ -45,3 +47,8 @@ urlpatterns = [
    path('main_app/', include('main_app.urls')),
    path('service_app/', include('service_app.urls'))
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
