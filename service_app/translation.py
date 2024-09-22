@@ -8,7 +8,7 @@ class ServiceTranslationOptions(TranslationOptions):
 
 @register(Order)
 class OrderTranslationOptions(TranslationOptions):
-    fields = ('name',)
+    fields = ('name', )
 
 
 @register(Service_description)

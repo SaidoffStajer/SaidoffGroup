@@ -4,19 +4,19 @@ from .models import Service, Order, Service_description, Portfolio
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service
-        fields = ('id', 'title')
+        fields = ('id', 'title','title_en', 'title_ru')
 
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('id', 'name', 'phone_number', 'service_name', 'message', 'created_at', 'is_checked')
+        fields = ('id', 'name', 'name_en', 'name_ru', 'phone_number', 'service_name', 'message', 'created_at', 'is_checked')
 
 
 class ServiceDescriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Service_description
-        fields = ('id', 'image', 'title', 'description', 'service_typ')
+        fields = ('id', 'image', 'title','title_en','title_ru','description', 'description_en', 'description_ru', 'service_typ')
 
 
 
