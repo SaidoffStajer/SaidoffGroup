@@ -39,6 +39,10 @@ urlpatterns += [
     path('i18n/', include('django.conf.urls.i18n')),
 ]
 
+urlpatterns += i18n_patterns(
+    path('set_language/', include('django.conf.urls.i18n')),
+)
+
 
 if settings.DEBUG:
    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -16,7 +16,6 @@ class FAQTransaltion(TranslationOptions):
 class PricePlanTranslation(TranslationOptions):
     fields = ('limit_date','limit_user','title')
 
-
 class FeatureTranslation(TranslationOptions):
     fields = ('title',)
 
