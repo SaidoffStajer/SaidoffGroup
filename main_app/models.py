@@ -71,12 +71,19 @@ class Feature(models.Model):
     title = models.CharField(max_length=125)
     tick = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.title
+
+
 class PricePlan(models.Model):
     title = models.CharField(max_length=125)
     price = models.IntegerField()
     limit_date = models.CharField(max_length=125)
     limit_user = models.CharField(max_length=125)
     features = models.ManyToManyField(Feature)
+
+    def __str__(self):
+        return self.title
 
 
 

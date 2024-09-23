@@ -30,6 +30,14 @@ urlpatterns = [
     path('',include('main_app.urls')),
  
 ]
+from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
+from django.urls import path, include
+
+# Add this to enable language switching
+urlpatterns += [
+    path('i18n/', include('django.conf.urls.i18n')),
+]
 
 
 if settings.DEBUG:
