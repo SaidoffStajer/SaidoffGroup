@@ -5,15 +5,17 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+
 
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Snippets API",
+      title="Saidoff Group",
       default_version='v1',
-      description="Test description",
+      description="Saidoff Group offical website",
       terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
+      contact=openapi.Contact(email="admin@gmail.com"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
@@ -21,22 +23,15 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+   path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+   path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     #appss
-    path('admin/', admin.site.urls),
-    path('service/',include('service_app.urls')),
-    path('',include('main_app.urls')),
+   path('admin/', admin.site.urls),
+   path('service/',include('service_app.urls')),
+   path('',include('main_app.urls')),
+   path('i18n/', include('django.conf.urls.i18n')),
  
-]
-from django.conf import settings
-from django.conf.urls.i18n import i18n_patterns
-from django.urls import path, include
-
-# Add this to enable language switching
-urlpatterns += [
-    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 urlpatterns += i18n_patterns(
@@ -44,7 +39,6 @@ urlpatterns += i18n_patterns(
 )
 
 
-if settings.DEBUG:
-   urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

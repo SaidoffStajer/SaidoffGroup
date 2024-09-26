@@ -49,10 +49,7 @@ class FAQView(ListAPIView):
     serializer_class = FAQSerializer
     
     def get_queryset(self):
-
         page = self.kwargs.get('faq_page')
-        
-        
         if not FAQCategory.objects.filter(title=page).exists():
             raise ValidationError({'message': 'Not available with this title'})
         
@@ -62,6 +59,7 @@ class FAQView(ListAPIView):
         queryset = self.get_queryset()
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+    
     
 
 class PricePlanView(ListAPIView):

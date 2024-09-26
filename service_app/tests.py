@@ -25,6 +25,7 @@ class ServiceTestCase(APITestCase):
             is_checked = False
         )
 
+
     def test_service(self):
         serializer = ServiceDescriptionSerializer(self.service_desc)
         serializer_data = serializer.data
