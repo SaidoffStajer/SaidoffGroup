@@ -1,6 +1,11 @@
 from django.db import models
 
 # Create your models here.
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class Service(models.Model):
     title = models.CharField(max_length=50)
@@ -8,7 +13,6 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
-    
 class Order(models.Model):
     name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
@@ -20,7 +24,6 @@ class Order(models.Model):
     def __str__(self):
         return self.name
 
-
 class Service_description(models.Model):
     image = models.ImageField(upload_to = 'media/')
     title = models.CharField(max_length=100)
@@ -29,11 +32,11 @@ class Service_description(models.Model):
     def __str__(self):
         return self.title
 
-
 class Portfolio(models.Model):
     image = models.ImageField(upload_to = 'media/')
     url_link = models.URLField()
     service_name = models.ForeignKey(Service, on_delete=models.CASCADE)
+    tags = models.ManyToManyField('Tag')
 
     def __str__(self):
         return self.service_name.title

@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import Faq_categoryList, Faq_categoryDetail, FeedbackList, FeedbackDetail,FaqList, FaqDetail, WhyUsList, WhyUsDetail, PartnersList, PartnersDetail,TeamList,TeamDetail, SubscribeList, SubscribeDetail,CertificateList,CertificateDetail,CertificateDetail
-
+from .views import Faq_categoryList, Faq_categoryDetail, FeedbackList, FeedbackDetail,FaqList, FaqDetail, WhyUsList, WhyUsDetail, PartnersList, PartnersDetail,TeamList,TeamDetail, SubscribeList, SubscribeDetail,CertificateList,CertificateDetail,CertificateDetail,FeatureList,PriceList,FeatureDetail,PriceDetail
 
 urlpatterns = [
     path('faq_categories/', Faq_categoryList.as_view(), name='faq_category_list'),
@@ -19,4 +18,9 @@ urlpatterns = [
     path('subscribes/<int:pk>/', SubscribeDetail.as_view(), name='subscribe_detail'),
     path('certificates/', CertificateList.as_view(), name='certificate_list'),
     path('certificates/<int:pk>/', CertificateDetail.as_view(), name='certificate_detail'),
+    path('features/', FeatureList.as_view(), name='feature_list'),
+    path('features/<int:pk>/', FeatureDetail.as_view(), name='feature_detail'),
+    path('prices/', PriceList.as_view(), name='price_list'),
+    path('prices/<int:pk>/', PriceDetail.as_view(), name='price_detail'),
+    
 ]

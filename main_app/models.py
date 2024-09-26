@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 
 class Faq_category(models.Model):
@@ -65,6 +64,25 @@ class Certificate(models.Model):
 
     def __str__(self):
         return self.title
+
+class Feature(models.Model):
+    title = models.CharField(max_length=125)
+    tic = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
+
+
+class Price(models.Model):
+    title = models.CharField(max_length=125)
+    price = models.IntegerField()
+    date = models.CharField(max_length=125)
+    user = models.CharField(max_length=125)
+    features = models.ManyToManyField('Feature')
+
+    def __str__(self):
+        return self.title
+
 
 
 
