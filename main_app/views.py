@@ -46,6 +46,7 @@ class FeedBackView(ListAPIView):
 
 
 class FAQView(ListAPIView):
+    permission_classes = (AllowAny,)
     serializer_class = FAQSerializer
     
     def get_queryset(self):

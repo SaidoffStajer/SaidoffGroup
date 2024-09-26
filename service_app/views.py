@@ -15,6 +15,7 @@ class ServiceView(ListAPIView):
 
 
 class ServiceDescriptionView(APIView):
+    permission_classes = (AllowAny,)
     def get(self,request, pk):
 
         service = Service.objects.get(id = pk)
@@ -33,6 +34,7 @@ class OrderView(CreateAPIView):
 
 class PortfolioListView(ListAPIView):
     serializer_class = PortfolioSerializer
+    permission_classes = (AllowAny,)
 
     def get_queryset(self):
         service_id = self.kwargs.get('service_id')
